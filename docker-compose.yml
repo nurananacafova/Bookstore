@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  bookstore:
+    container_name: bookstore_con
+    build:
+      context: bookstore_con
+      dockerfile: Dockerfile
+    image: bookstoree_img:v2
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+      - liquibase
+  db:
+    image: mysql:latest
+    container_name: mysql_con
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'bookstore'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: '1adnsutelebesi'
+      MYSQL_ROOT_PASSWORD: '1adnsutelebesi'
+    ports:
+       - "3306:3306"
+
+  liquibase:
+    image: mysql:latest
+    container_name: liquibase_con
+    hostname: liquibase
+    environment:
+      MYSQL_DATABASE: 'bookstore'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: '1adnsutelebesi'
+      MYSQL_ROOT_PASSWORD: '1adnsutelebesi'
+    ports:
+      - "3307:3307"
