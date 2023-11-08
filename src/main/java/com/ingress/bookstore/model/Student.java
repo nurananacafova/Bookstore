@@ -1,6 +1,7 @@
 package com.ingress.bookstore.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -33,7 +34,7 @@ public class Student {
     @JoinTable(name = "student_book",
             joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"))
-    @Schema(hidden = true)
+    @JsonIgnore
     private List<Book> currentBooks;
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -41,7 +42,7 @@ public class Student {
             name = "student_subscribtion",
             joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id"))
-    @Schema(hidden = true)
+    @JsonIgnore
     private List<Author> subscribtion;
 
     public void setCurrentBooks(Integer bookId) {
