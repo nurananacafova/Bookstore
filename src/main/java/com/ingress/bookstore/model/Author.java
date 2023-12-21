@@ -1,6 +1,5 @@
 package com.ingress.bookstore.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
@@ -26,11 +25,11 @@ public class Author {
     private String password;
     private int age;
     @ManyToMany(mappedBy = "author")
-    @JsonIgnore
+    @Schema(hidden = true)
     private List<Book> books = new ArrayList<>();
 
     @ManyToMany(mappedBy = "subscribtion")
-    @JsonIgnore
+    @Schema(hidden = true)
     private List<Student> subscribedStudents = new ArrayList<>();
 
 
