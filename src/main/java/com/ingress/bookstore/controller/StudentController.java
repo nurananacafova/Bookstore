@@ -2,9 +2,8 @@ package com.ingress.bookstore.controller;
 
 import com.ingress.bookstore.dto.responseDto.BookResponseDto;
 import com.ingress.bookstore.dto.responseDto.StudentDto;
-import com.ingress.bookstore.model.Book;
 import com.ingress.bookstore.model.Student;
-import com.ingress.bookstore.service.StudentService;
+import com.ingress.bookstore.service.impl.StudentServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -21,7 +20,7 @@ import java.util.List;
 
 public class StudentController {
 
-    public final StudentService studentService;
+    public final StudentServiceImpl studentService;
     private final ModelMapper modelMapper;
 
     @GetMapping("/books/all")

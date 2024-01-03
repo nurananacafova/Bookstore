@@ -2,7 +2,7 @@ package com.ingress.bookstore.controller;
 
 import com.ingress.bookstore.dto.responseDto.BookResponseDto;
 import com.ingress.bookstore.dto.responseDto.StudentDto;
-import com.ingress.bookstore.service.BookService;
+import com.ingress.bookstore.service.impl.BookServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +17,9 @@ import java.util.List;
 @RequestMapping("/api/bookstore/books/")
 public class BookController {
 
-    public final BookService bookService;
+    public final BookServiceImpl bookService;
 
-    public BookController(BookService bookService) {
+    public BookController(BookServiceImpl bookService) {
         this.bookService =bookService ;
     }
 

@@ -2,10 +2,9 @@ package com.ingress.bookstore.controller;
 import com.ingress.bookstore.dto.responseDto.BookResponseDto;
 import com.ingress.bookstore.model.Author;
 import com.ingress.bookstore.model.Book;
-import com.ingress.bookstore.service.AuthorService;
+import com.ingress.bookstore.service.impl.AuthorServiceImpl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @CrossOrigin("*")
 public class AuthorController {
-    public final AuthorService authorService;
+    public final AuthorServiceImpl authorService;
 
 
     @GetMapping("/")
